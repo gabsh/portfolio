@@ -27,11 +27,20 @@ export interface Project {
   description: string;
   githubLink?: string;
   liveLink?: string;
-  image: string;
+  image?: string;
   tags: string[];
 }
 
-export const projects: Project[] = [];
+export const projects: Project[] = [
+  {
+    name: 'FSight',
+    description: 'RAG pipeline to query SEC 10-K annual filings for major tech companies. Ask questions, select a company, and get answers with source citations.',
+    image: '/FSIGHT.png',
+    githubLink: 'https://github.com/gabsh/FSight',
+    liveLink: 'https://fsight.fr',
+    tags: ['RAG', 'FastAPI', 'Vue 3', 'Qdrant', 'OpenAI', 'Docker'],
+  },
+];
 
 export interface TimelineItem {
   id: string;

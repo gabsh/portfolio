@@ -23,31 +23,28 @@ export default function Portfolio() {
           </p>
         </motion.div>
 
-        {projects.length === 0 ? (
+        <div className="grid md:grid-cols-2 lg:grid-cols-3 gap-6">
+          {projects.map((project, index) => (
+            <motion.div
+              key={index}
+              initial={{ opacity: 0, y: 20 }}
+              animate={{ opacity: 1, y: 0 }}
+              transition={{ duration: 0.4, delay: index * 0.08 }}
+            >
+              <ProjectCard {...project} />
+            </motion.div>
+          ))}
           <motion.div
-            initial={{ opacity: 0 }}
-            animate={{ opacity: 1 }}
-            transition={{ delay: 0.2 }}
-            className="border border-dashed border-border rounded-xl p-16 text-center"
+            initial={{ opacity: 0, y: 20 }}
+            animate={{ opacity: 1, y: 0 }}
+            transition={{ duration: 0.4, delay: projects.length * 0.08 }}
+            className="border border-dashed border-border rounded-xl h-full min-h-[280px] flex items-center justify-center"
           >
             <p className="text-muted text-sm uppercase tracking-widest">
               Projects coming soon
             </p>
           </motion.div>
-        ) : (
-          <div className="grid md:grid-cols-2 lg:grid-cols-3 gap-6">
-            {projects.map((project, index) => (
-              <motion.div
-                key={index}
-                initial={{ opacity: 0, y: 20 }}
-                animate={{ opacity: 1, y: 0 }}
-                transition={{ duration: 0.4, delay: index * 0.08 }}
-              >
-                <ProjectCard {...project} />
-              </motion.div>
-            ))}
-          </div>
-        )}
+        </div>
       </div>
     </main>
   );

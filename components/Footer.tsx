@@ -1,4 +1,4 @@
-import { LinkedinIcon } from "lucide-react";
+import { LinkedinIcon, Github } from "lucide-react";
 
 const techs = [
   { name: "Next.js", href: "https://nextjs.org" },
@@ -38,6 +38,14 @@ export default function Footer() {
               className="text-dim hover:text-foreground transition-colors"
             >
               <LinkedinIcon size={26} />
+            </a>
+            <a
+              href="https://github.com/gabsh"
+              target="_blank"
+              rel="noopener noreferrer"
+              className="text-dim hover:text-foreground transition-colors"
+            >
+              <Github size={26} />
             </a>
           </div>
         </div>

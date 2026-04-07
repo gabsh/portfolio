@@ -5,7 +5,7 @@ interface ProjectCardProps {
   description: string;
   githubLink?: string;
   liveLink?: string;
-  image: string;
+  image?: string;
   tags: string[];
 }
 
@@ -14,13 +14,19 @@ const btnClass = "flex-1 text-center px-4 py-2 bg-white/10 text-foreground round
 export default function ProjectCard({ name, description, githubLink, liveLink, image, tags }: ProjectCardProps) {
   return (
     <div className="bg-widget border border-border rounded-xl overflow-hidden hover:border-muted transition-all duration-300 group">
-      <div className="relative h-64 w-full overflow-hidden">
-        <Image
-          src={image}
-          alt={name}
-          fill
-          className="object-cover transition-transform duration-300"
-        />
+      <div className="relative h-48 w-full overflow-hidden">
+        {image ? (
+          <Image
+            src={image}
+            alt={name}
+            fill
+            className="object-cover transition-transform duration-300"
+          />
+        ) : (
+          <div className="h-full w-full bg-gradient-to-br from-accent/10 to-accent/5 flex items-center justify-center">
+            <span className="text-accent/30 text-5xl font-bold select-none">{name[0]}</span>
+          </div>
+        )}
       </div>
 
       <div className="p-6">
@@ -43,7 +49,7 @@ export default function ProjectCard({ name, description, githubLink, liveLink, i
           )}
           {liveLink && (
             <a href={liveLink} target="_blank" rel="noopener noreferrer" className={btnClass}>
-              Live Demo
+              Visit
             </a>
           )}
         </div>

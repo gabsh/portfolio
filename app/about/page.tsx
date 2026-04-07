@@ -2,7 +2,7 @@
 
 import { motion } from "framer-motion";
 import { timelineData } from '@/lib/data';
-import { LinkedinIcon, Mail } from "lucide-react";
+import { LinkedinIcon, Mail, Github } from "lucide-react";
 import SectionLabel from "@/components/SectionLabel";
 
 const fadeUp = (delay = 0) => ({
@@ -46,6 +46,15 @@ export default function About() {
             >
               <LinkedinIcon size={17} className="text-accent shrink-0" />
               <span className="text-sm">linkedin.com/in/gabin-hemmerle</span>
+            </a>
+            <a
+              href="https://github.com/gabsh"
+              target="_blank"
+              rel="noopener noreferrer"
+              className={contactLinkClass}
+            >
+              <Github size={17} className="text-accent shrink-0" />
+              <span className="text-sm">github.com/gabsh</span>
             </a>
           </div>
         </motion.section>
