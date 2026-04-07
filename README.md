@@ -11,8 +11,3 @@ Hey, this is my personal portfolio. I built it to have somewhere clean to show m
 
 Next.js 16, TypeScript, Tailwind CSS v4, Framer Motion, Three.js — and Bun to run everything.
 
-## Find me
-
-- [github.com/gabsh](https://github.com/gabsh)
-- [linkedin.com/in/gabin-hemmerle](https://linkedin.com/in/gabin-hemmerle)
-- [gabin-hemmerle.fr](https://gabin-hemmerle.fr)
