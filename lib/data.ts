@@ -45,7 +45,7 @@ export const projects: Project[] = [
     description: 'Sentiment classification benchmark comparing embedding × classifier combinations (TF-IDF, BoW, LR, SVM, LightGBM, XGBoost…) on the Stanford IMDB dataset. Tracks experiments with MLflow and serves predictions with LIME explanations via FastAPI and a Vue 3 frontend.',
     image: '/MLENS.png',
     githubLink: 'https://github.com/gabsh/mlens',
-    liveLink: 'http://57.131.48.179:8080/',
+    liveLink: 'https://mlens.fr',
     tags: ['Python', 'FastAPI', 'Vue 3', 'scikit-learn', 'MLflow', 'LIME', 'Docker'],
   },
 ];
