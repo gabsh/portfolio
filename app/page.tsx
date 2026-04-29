@@ -38,7 +38,7 @@ export default function Home() {
           initial={{ opacity: 0, y: 20 }}
           animate={{ opacity: 1, y: 0 }}
           transition={{ duration: 0.6, delay: 0.45 }}
-          className="flex gap-3 mt-8"
+          className="flex gap-4 mt-10"
         >
           {navLinks.map((item, i) => (
             <motion.div
@@ -49,9 +49,18 @@ export default function Home() {
             >
               <Link
                 href={item.href}
-                className="px-6 py-3 border border-white/20 text-white/80 text-sm font-medium hover:bg-white/10 hover:border-white/40 transition-all duration-200"
+                className="group relative inline-flex items-center gap-2 px-7 py-3.5 rounded-md border border-white/25 text-white/70 text-sm font-medium tracking-wide hover:border-white/60 hover:text-white transition-all duration-300"
               >
                 {item.label}
+                <span className="translate-x-0 group-hover:translate-x-1 transition-transform duration-200">
+                  →
+                </span>
+                {i === 1 && (
+                  <span className="absolute -top-1 -right-1 flex h-2.5 w-2.5">
+                    <span className="animate-ping absolute inline-flex h-full w-full rounded-full bg-orange-400/70" />
+                    <span className="absolute inline-flex h-2.5 w-2.5 rounded-full bg-orange-500" />
+                  </span>
+                )}
               </Link>
             </motion.div>
           ))}
