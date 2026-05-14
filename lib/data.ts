@@ -38,7 +38,7 @@ export const projects: Project[] = [
     image: '/FSIGHT.png',
     githubLink: 'https://github.com/gabsh/FSight',
     liveLink: 'https://fsight.fr',
-    tags: ['RAG', 'FastAPI', 'Vue 3', 'Qdrant', 'OpenAI', 'Docker'],
+    tags: ['RAG', 'FastAPI', 'Vue 3', 'Qdrant', 'OpenAI', 'Docker', 'Kubernetes'],
   },
   {
     name: 'MLens',
@@ -46,7 +46,7 @@ export const projects: Project[] = [
     image: '/MLENS.png',
     githubLink: 'https://github.com/gabsh/mlens',
     liveLink: 'https://mlens.fr',
-    tags: ['Python', 'FastAPI', 'Vue 3', 'scikit-learn', 'MLflow', 'LIME', 'Docker'],
+    tags: ['Python', 'FastAPI', 'Vue 3', 'scikit-learn', 'MLflow', 'LIME', 'Docker', 'Kubernetes'],
   },
 ];
 
