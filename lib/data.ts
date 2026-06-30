@@ -46,7 +46,14 @@ export const projects: Project[] = [
     image: '/MLENS.png',
     githubLink: 'https://github.com/gabsh/mlens',
     liveLink: 'https://mlens.fr',
-    tags: ['Python', 'FastAPI', 'Vue 3', 'scikit-learn', 'MLflow', 'LIME', 'Docker', 'Kubernetes'],
+    tags: ['FastAPI', 'Vue 3', 'scikit-learn', 'MLflow', 'LIME', 'Docker', 'Kubernetes'],
+  },
+  {
+    name: 'Palettify',
+    description: 'In progress : Tool that extracts visual identity of any website from its URL. Takes a screenshot via Playwright, for now only runs color quantization, and caches results in PostgreSQL. Includes a library browsing past analyses.',
+    githubLink: 'https://github.com/gabsh/palettify',
+    liveLink: 'https://palettify.app/',
+    tags: ['Angular', 'Spring Boot', 'PostgreSQL', 'Playwright', 'Docker', 'Kubernetes'],
   },
 ];
 
