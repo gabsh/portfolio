@@ -55,7 +55,7 @@ export default function Home() {
                 <span className="translate-x-0 group-hover:translate-x-1 transition-transform duration-200">
                   →
                 </span>
-                {i === 1 && (
+                {i === 0 && (
                   <span className="absolute -top-1 -right-1 flex h-2.5 w-2.5">
                     <span className="animate-ping absolute inline-flex h-full w-full rounded-full bg-orange-400/70" />
                     <span className="absolute inline-flex h-2.5 w-2.5 rounded-full bg-orange-500" />

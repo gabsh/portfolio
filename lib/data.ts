@@ -57,6 +57,45 @@ export const projects: Project[] = [
   },
 ];
 
+export const profile = {
+  role: 'Full-Stack Developer',
+  intro:
+    "Graduate of a Master's degree in MIAGE (software engineering & data science track). I mainly work with Python (FastAPI) and Spring Boot, complemented by frontend frameworks (Vue, Angular) — skills built through work-study, internships, and personal projects deployed on my own VPS (Docker, Kubernetes, GitHub Actions). Self-taught, curious, and actively following the tech ecosystem.",
+  contacts: {
+    email: 'gabin.hemm@gmail.com',
+    linkedin: 'https://linkedin.com/in/gabin-hemmerle',
+    github: 'https://github.com/gabsh',
+  },
+};
+
+export interface SkillGroup {
+  category: string;
+  items: string[];
+}
+
+export const skillGroups: SkillGroup[] = [
+  {
+    category: 'Backend',
+    items: ['Java (Spring Boot / Hibernate)', 'REST APIs', 'Python (FastAPI, Flask)', 'VBA', 'PHP', 'Golang (Gin)'],
+  },
+  {
+    category: 'Frontend',
+    items: ['Node.js / Bun', 'Angular', 'TypeScript', 'React', 'Next.js', 'Vue.js', 'Svelte'],
+  },
+  {
+    category: 'Data Science',
+    items: ['Python (Pandas, Scikit-Learn, PyTorch, NumPy)', 'Supervised & unsupervised ML', 'MLflow', 'Qlik Sense', 'Alteryx', 'KNIME'],
+  },
+  {
+    category: 'Databases',
+    items: ['PostgreSQL', 'MySQL', 'MongoDB'],
+  },
+  {
+    category: 'DevOps & Cloud',
+    items: ['Docker', 'Kubernetes', 'CI/CD (GitHub Actions)', 'NGINX', 'Git', 'Linux (Ubuntu / WSL)', 'Prometheus', 'Ansible', 'Power Platform'],
+  },
+];
+
 export interface TimelineItem {
   id: string;
   dateRange?: string;
