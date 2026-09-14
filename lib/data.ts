@@ -50,9 +50,8 @@ export const projects: Project[] = [
   },
   {
     name: 'Palettify',
-    description: 'In progress : Tool that extracts visual identity of any website from its URL. Takes a screenshot via Playwright, for now only runs color quantization, and caches results in PostgreSQL. Includes a library browsing past analyses.',
+    description: 'Abandoned : Tool that extracts visual identity of any website from its URL. Takes a screenshot via Playwright, for now only runs color quantization, and caches results in PostgreSQL. Includes a library browsing past analyses.',
     githubLink: 'https://github.com/gabsh/palettify',
-    liveLink: 'https://palettify.app/',
     tags: ['Angular', 'Spring Boot', 'PostgreSQL', 'Playwright', 'Docker', 'Kubernetes'],
   },
 ];
