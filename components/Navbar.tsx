@@ -8,27 +8,29 @@ export default function Navbar() {
   const pathname = usePathname();
 
   return (
-    <nav className="fixed top-0 w-full bg-[#0d0d0d]/80 backdrop-blur-md border-b border-border z-50">
+    <nav className="fixed top-0 w-full bg-background/80 backdrop-blur-md border-b border-border z-50">
       <div className="max-w-6xl mx-auto px-4 sm:px-6 lg:px-8">
         <div className="flex justify-between items-center h-16">
-          <Link href="/" className="text-base font-semibold text-foreground tracking-tight">
-            Gabin Hemmerle
+          <Link href="/" className="font-mono text-sm text-foreground">
+            <span className="text-accent">~/</span>gabin
           </Link>
 
-          <div className="flex gap-1">
+          <div className="flex gap-6 font-mono text-sm">
             {navLinks.map(({ href, label }) => {
               const isActive = pathname === href || pathname.startsWith(href + '/');
               return (
                 <Link
                   key={href}
                   href={href}
-                  className={`px-4 py-2 rounded-lg text-sm font-medium transition-all duration-200 ${
-                    isActive
-                      ? 'text-accent bg-accent/8'
-                      : 'text-dim hover:text-foreground hover:bg-foreground/5'
+                  className={`relative py-2 transition-colors duration-200 ${
+                    isActive ? 'text-foreground' : 'text-dim hover:text-foreground'
                   }`}
                 >
-                  {label}
+                  {isActive && <span className="text-muted">./</span>}
+                  {label.toLowerCase()}
+                  {isActive && (
+                    <span className="absolute left-0 -bottom-px h-px w-full bg-foreground" />
+                  )}
                 </Link>
               );
             })}

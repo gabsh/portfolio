@@ -13,19 +13,21 @@ export default function Footer() {
     <footer className="bg-background border-t border-border mt-5">
       <div className="max-w-6xl mx-auto px-4 sm:px-6 lg:px-8 py-5">
         <div className="flex flex-col md:flex-row justify-between items-center gap-4">
-          <div className="flex flex-col items-center md:items-start gap-2">
-            <span className="text-sm text-muted font-medium">Built with</span>
-            <div className="flex items-center gap-3">
-              {techs.map(({ name, href }) => (
-                <a
-                  key={name}
-                  href={href}
-                  target="_blank"
-                  rel="noopener noreferrer"
-                  className="text-xs text-muted hover:text-foreground transition-colors"
-                >
-                  {name}
-                </a>
+          <div className="flex flex-col items-center md:items-start gap-2 font-mono">
+            <span className="text-xs text-muted">{'/* built with */'}</span>
+            <div className="flex flex-wrap justify-center md:justify-start items-center gap-x-3 gap-y-1">
+              {techs.map(({ name, href }, i) => (
+                <span key={name} className="flex items-center gap-3">
+                  <a
+                    href={href}
+                    target="_blank"
+                    rel="noopener noreferrer"
+                    className="text-xs text-muted hover:text-accent transition-colors"
+                  >
+                    {name}
+                  </a>
+                  {i < techs.length - 1 && <span className="text-border text-xs">·</span>}
+                </span>
               ))}
             </div>
           </div>

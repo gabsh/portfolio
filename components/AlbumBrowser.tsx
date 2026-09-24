@@ -3,6 +3,7 @@
 import { useState } from 'react';
 import Image, { StaticImageData } from 'next/image';
 import PhotoCard from '@/components/PhotoCard';
+import SectionLabel from '@/components/SectionLabel';
 import { albums, Album } from '@/lib/data';
 
 export default function AlbumBrowser() {
@@ -16,9 +17,9 @@ export default function AlbumBrowser() {
             <div className="flex justify-center md:justify-start">
               <button
                 onClick={() => setSelectedAlbum(null)}
-                className="text-dim hover:text-foreground transition-colors uppercase tracking-widest text-sm font-semibold flex"
+                className="font-mono text-dim hover:text-foreground transition-colors text-sm flex"
               >
-                ← Back to Albums
+                ← back
               </button>
             </div>
             <div className="text-center">
@@ -28,7 +29,7 @@ export default function AlbumBrowser() {
           </div>
         ) : (
           <div>
-            <p className="text-accent text-xs uppercase tracking-[0.3em] font-semibold mb-4">Visual</p>
+            <SectionLabel>visual</SectionLabel>
             <h1 className="text-5xl font-bold text-foreground mb-4">Photography</h1>
             <p className="text-xl text-dim">Choose an album to view photos.</p>
           </div>
@@ -73,7 +74,7 @@ export default function AlbumBrowser() {
 
               <div className="mt-6 text-center">
                 <h2 className="text-2xl font-bold text-subtle tracking-wide group-hover:text-foreground transition-colors">{album.title}</h2>
-                <p className="text-[12px] uppercase tracking-[0.2em] text-muted mt-2 font-semibold">
+                <p className="font-mono text-xs text-muted mt-2">
                   {album.photos.length} photos
                 </p>
               </div>

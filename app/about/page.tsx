@@ -11,7 +11,7 @@ const fadeUp = (delay = 0) => ({
   transition: { duration: 0.55, delay },
 });
 
-const contactLinkClass = "flex items-center gap-3 px-5 py-3 bg-widget border border-border rounded-xl text-subtle hover:text-foreground hover:border-muted transition-all group";
+const contactLinkClass = "flex items-center gap-3 px-5 py-3 bg-widget border border-border rounded-sm text-subtle hover:text-foreground hover:border-muted transition-all group font-mono text-sm whitespace-nowrap";
 
 export default function About() {
   return (
@@ -20,7 +20,7 @@ export default function About() {
 
         {/* Intro */}
         <motion.section className="mb-16" {...fadeUp(0)}>
-          <SectionLabel>Introduction</SectionLabel>
+          <SectionLabel>introduction</SectionLabel>
           <h1 className="text-4xl md:text-5xl font-bold text-foreground mb-6 leading-tight">
             Hello, I&apos;m Gabin 👋
           </h1>
@@ -31,7 +31,7 @@ export default function About() {
 
         {/* Contact */}
         <motion.section className="mb-16" {...fadeUp(0.12)}>
-          <SectionLabel>Contact</SectionLabel>
+          <SectionLabel>contact</SectionLabel>
           <h2 className="text-2xl font-bold text-foreground mb-6">Get in touch</h2>
           <div className="flex flex-col sm:flex-row gap-3">
             <a href="mailto:gabin.hemm@gmail.com" className={contactLinkClass}>
@@ -61,7 +61,7 @@ export default function About() {
 
         {/* Timeline */}
         <motion.section {...fadeUp(0.24)}>
-          <SectionLabel>Background</SectionLabel>
+          <SectionLabel>background</SectionLabel>
           <h2 className="text-2xl font-bold text-foreground mb-12">This is my background</h2>
 
           <div className="relative">
@@ -91,8 +91,8 @@ export default function About() {
                 >
                   <div className="absolute left-1/2 top-6 -translate-x-1/2 w-2.5 h-2.5 rounded-full bg-accent z-10 ring-4 ring-accent/30" />
 
-                  <div className="bg-widget border border-border rounded-xl p-6 hover:border-muted transition-all duration-300 group">
-                    <p className="text-[11px] text-muted uppercase tracking-widest mb-2">
+                  <div className="bg-widget border border-border rounded-sm p-6 hover:border-muted transition-all duration-300 group">
+                    <p className="font-mono text-[11px] text-muted mb-2">
                       {item.dateRange}
                     </p>
                     <h3 className="text-lg font-bold text-foreground mb-1">
@@ -118,16 +118,9 @@ export default function About() {
                       </ul>
                     )}
                     {item.tags && (
-                      <div className="flex flex-wrap gap-1.5 mt-4">
-                        {item.tags.split(', ').map((tag, idx) => (
-                          <span
-                            key={idx}
-                            className="px-2.5 py-0.5 bg-accent/8 text-accent border border-accent/20 rounded-full text-xs font-medium"
-                          >
-                            {tag}
-                          </span>
-                        ))}
-                      </div>
+                      <p className="font-mono text-xs text-accent mt-4">
+                        {item.tags.split(', ').map((tag) => `#${tag}`).join('  ')}
+                      </p>
                     )}
                   </div>
                 </motion.div>

@@ -30,8 +30,8 @@ export default function PhotoCard({ name, image, settings }: PhotoCardProps) {
     <>
       <div className="w-full relative">
         {meta.length > 0 && (
-          <p className="text-[10px] md:text-sm tracking-[0.25em] uppercase text-muted font-semibold mb-3 text-center">
-            {meta.join(' | ')}
+          <p className="font-mono text-[10px] md:text-xs text-muted mb-3 text-center">
+            {meta.join(' · ')}
           </p>
         )}
 

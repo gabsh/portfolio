@@ -1,6 +1,7 @@
-export default function SectionLabel({ children }: { children: React.ReactNode }) {
+export default function SectionLabel({ children, tone = 'accent' }: { children: React.ReactNode; tone?: 'accent' | 'neutral' }) {
   return (
-    <p className="text-accent text-xs uppercase tracking-[0.3em] font-semibold mb-4">
+    <p className={`font-mono text-sm mb-4 flex items-center gap-2 ${tone === 'accent' ? 'text-accent' : 'text-foreground'}`}>
+      <span className="text-muted">{'//'}</span>
       {children}
     </p>
   );

@@ -1,4 +1,5 @@
 import Image from 'next/image';
+import { Github, ArrowUpRight } from 'lucide-react';
 
 interface ProjectCardProps {
   name: string;
@@ -9,47 +10,61 @@ interface ProjectCardProps {
   tags: string[];
 }
 
-const btnClass = "flex-1 text-center px-4 py-2 bg-white/10 text-foreground rounded-lg hover:bg-white/15 border border-border transition-all font-medium";
+function slugify(name: string) {
+  return name.toLowerCase().replace(/[^a-z0-9]+/g, '-').replace(/(^-|-$)/g, '');
+}
 
 export default function ProjectCard({ name, description, githubLink, liveLink, image, tags }: ProjectCardProps) {
   return (
-    <div className="bg-widget border border-border rounded-xl overflow-hidden hover:border-muted transition-all duration-300 group">
-      <div className="relative h-48 w-full overflow-hidden">
-        {image ? (
+    <div className="bg-widget border border-border rounded-sm overflow-hidden hover:border-muted transition-colors duration-300 group">
+      {/* fake editor titlebar */}
+      <div className="flex items-center justify-between px-4 py-2.5 border-b border-border bg-black/20">
+        <div className="flex gap-1.5">
+          <span className="w-2.5 h-2.5 rounded-full bg-border" />
+          <span className="w-2.5 h-2.5 rounded-full bg-border" />
+          <span className="w-2.5 h-2.5 rounded-full bg-border" />
+        </div>
+        <span className="font-mono text-[11px] text-muted">{slugify(name)}.tsx</span>
+      </div>
+
+      {image && (
+        <div className="relative h-44 w-full overflow-hidden border-b border-border">
           <Image
             src={image}
             alt={name}
             fill
-            className="object-cover transition-transform duration-300"
+            className="object-cover grayscale group-hover:grayscale-0 transition-all duration-500"
           />
-        ) : (
-          <div className="h-full w-full bg-gradient-to-br from-accent/10 to-accent/5 flex items-center justify-center">
-            <span className="text-accent/30 text-5xl font-bold select-none">{name[0]}</span>
-          </div>
-        )}
-      </div>
+        </div>
+      )}
 
       <div className="p-6">
-        <h3 className="text-2xl font-bold text-foreground mb-3">{name}</h3>
-        <p className="text-subtle mb-4">{description}</p>
+        <h3 className="text-xl font-bold text-foreground mb-2">{name}</h3>
+        <p className="text-subtle text-sm leading-relaxed mb-4">{description}</p>
 
-        <div className="flex flex-wrap gap-2 mb-4">
-          {tags.map((tag, index) => (
-            <span key={index} className="px-3 py-1 bg-accent/8 text-accent border border-accent/20 rounded-full text-sm font-medium">
-              {tag}
-            </span>
-          ))}
-        </div>
+        <p className="font-mono text-xs text-subtle mb-5 leading-relaxed">
+          {tags.map((tag) => `#${tag}`).join('  ')}
+        </p>
 
-        <div className="flex gap-4">
+        <div className="flex items-center gap-5 font-mono text-xs">
           {githubLink && (
-            <a href={githubLink} target="_blank" rel="noopener noreferrer" className={btnClass}>
-              GitHub
+            <a
+              href={githubLink}
+              target="_blank"
+              rel="noopener noreferrer"
+              className="flex items-center gap-1.5 text-dim hover:text-foreground transition-colors"
+            >
+              <Github size={14} /> source
             </a>
           )}
           {liveLink && (
-            <a href={liveLink} target="_blank" rel="noopener noreferrer" className={btnClass}>
-              Visit
+            <a
+              href={liveLink}
+              target="_blank"
+              rel="noopener noreferrer"
+              className="flex items-center gap-1.5 text-dim hover:text-foreground transition-colors"
+            >
+              live <ArrowUpRight size={14} />
             </a>
           )}
         </div>

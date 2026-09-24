@@ -6,7 +6,11 @@ import SectionLabel from '@/components/SectionLabel';
 import { projects, profile, skillGroups } from '@/lib/data';
 import { LinkedinIcon, Mail, Github } from "lucide-react";
 
-const contactLinkClass = "flex items-center gap-3 px-5 py-3 bg-widget border border-border rounded-xl text-subtle hover:text-foreground hover:border-muted transition-all group";
+const contactRows = [
+  { icon: Mail, label: 'mail', value: 'gabin.hemm@gmail.com', href: `mailto:${profile.contacts.email}` },
+  { icon: LinkedinIcon, label: 'linkedin', value: 'linkedin.com/in/gabin-hemmerle', href: profile.contacts.linkedin },
+  { icon: Github, label: 'github', value: 'github.com/gabsh', href: profile.contacts.github },
+];
 
 export default function Portfolio() {
   return (
@@ -14,84 +18,78 @@ export default function Portfolio() {
       <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
 
         <motion.div
-          initial={{ opacity: 0, y: 24 }}
+          initial={{ opacity: 0, y: 16 }}
           animate={{ opacity: 1, y: 0 }}
-          transition={{ duration: 0.55 }}
+          transition={{ duration: 0.5 }}
           className="mb-16"
         >
-          <SectionLabel>Work</SectionLabel>
+          <SectionLabel tone="neutral">work</SectionLabel>
           <h1 className="text-5xl font-bold text-foreground mb-4 leading-tight">Portfolio</h1>
           <p className="text-xl text-dim max-w-xl mb-2">
             A selection of projects showcasing my skills and experience.
           </p>
         </motion.div>
 
-        {/* Profile */}
-        <motion.section
-          className="mb-16"
-          initial={{ opacity: 0, y: 20 }}
-          animate={{ opacity: 1, y: 0 }}
-          transition={{ duration: 0.5, delay: 0.05 }}
-        >
-          <p className="text-accent text-sm font-medium mb-4">{profile.role}</p>
-          <p className="text-subtle leading-relaxed mb-6 max-w-4xl">{profile.intro}</p>
-
-          <div className="flex flex-col sm:flex-row gap-3 mb-8">
-            <a href={`mailto:${profile.contacts.email}`} className={contactLinkClass}>
-              <Mail size={17} className="text-accent shrink-0" />
-              <span className="text-sm">{profile.contacts.email}</span>
-            </a>
-            <a href={profile.contacts.linkedin} target="_blank" rel="noopener noreferrer" className={contactLinkClass}>
-              <LinkedinIcon size={17} className="text-accent shrink-0" />
-              <span className="text-sm">linkedin.com/in/gabin-hemmerle</span>
-            </a>
-            <a href={profile.contacts.github} target="_blank" rel="noopener noreferrer" className={contactLinkClass}>
-              <Github size={17} className="text-accent shrink-0" />
-              <span className="text-sm">github.com/gabsh</span>
-            </a>
+        {/* Profile — laid out as a terminal readout instead of a card row */}
+        <section className="mb-16 border border-border rounded-sm bg-widget overflow-hidden">
+          <div className="flex items-center gap-1.5 px-4 py-2.5 border-b border-border bg-black/20">
+            <span className="w-2.5 h-2.5 rounded-full bg-border" />
+            <span className="w-2.5 h-2.5 rounded-full bg-border" />
+            <span className="w-2.5 h-2.5 rounded-full bg-border" />
+            <span className="font-mono text-[11px] text-muted ml-2">whoami.sh</span>
           </div>
 
-          <div className="space-y-4">
-            {skillGroups.map((group) => (
-              <div key={group.category} className="flex flex-col sm:flex-row sm:items-baseline gap-1 sm:gap-6">
-                <p className="text-xs uppercase tracking-widest text-muted w-44 shrink-0">{group.category}</p>
-                <div className="flex flex-wrap gap-1.5">
-                  {group.items.map((item) => (
-                    <span
-                      key={item}
-                      className="px-2.5 py-0.5 bg-accent/8 text-accent border border-accent/20 rounded-full text-xs font-medium"
-                    >
-                      {item}
-                    </span>
-                  ))}
+          <div className="p-6 sm:p-8">
+            <p className="font-mono text-foreground text-sm mb-4">{profile.role}</p>
+            <p className="text-subtle leading-relaxed mb-8 max-w-4xl">{profile.intro}</p>
+
+            <div className="font-mono text-sm space-y-1.5 mb-8">
+              {contactRows.map(({ icon: Icon, label, value, href }) => (
+                <a
+                  key={label}
+                  href={href}
+                  target={label === 'mail' ? undefined : '_blank'}
+                  rel={label === 'mail' ? undefined : 'noopener noreferrer'}
+                  className="flex items-center gap-2 text-dim hover:text-foreground transition-colors group w-fit"
+                >
+                  <span className="text-muted">$</span>
+                  <Icon size={14} className="text-foreground shrink-0" />
+                  <span className="text-muted w-16 shrink-0">{label}</span>
+                  <span className="group-hover:underline underline-offset-4">{value}</span>
+                </a>
+              ))}
+            </div>
+
+            <div className="space-y-3 pt-6 border-t border-border">
+              {skillGroups.map((group) => (
+                <div key={group.category} className="flex flex-col sm:flex-row sm:items-baseline gap-1 sm:gap-6">
+                  <p className="font-mono text-xs text-muted w-36 shrink-0">{group.category.toLowerCase()}</p>
+                  <p className="font-mono text-xs text-subtle leading-relaxed">
+                    {group.items.map((item) => `#${item}`).join('  ')}
+                  </p>
                 </div>
-              </div>
-            ))}
+              ))}
+            </div>
           </div>
-        </motion.section>
+        </section>
 
-        <SectionLabel>Projects</SectionLabel>
-        <div className="grid md:grid-cols-2 lg:grid-cols-3 gap-6">
+        <SectionLabel tone="neutral">projects</SectionLabel>
+        <div className="grid md:grid-cols-2 gap-6">
           {projects.map((project, index) => (
             <motion.div
               key={index}
-              initial={{ opacity: 0, y: 20 }}
+              initial={{ opacity: 0, y: 16 }}
               animate={{ opacity: 1, y: 0 }}
-              transition={{ duration: 0.4, delay: index * 0.08 }}
+              transition={{ duration: 0.4, delay: index * 0.06 }}
             >
               <ProjectCard {...project} />
             </motion.div>
           ))}
-          <motion.div
-            initial={{ opacity: 0, y: 20 }}
-            animate={{ opacity: 1, y: 0 }}
-            transition={{ duration: 0.4, delay: projects.length * 0.08 }}
-            className="border border-dashed border-border rounded-xl h-full min-h-[280px] flex items-center justify-center"
-          >
-            <p className="text-muted text-sm uppercase tracking-widest">
-              Projects coming soon
+          <div className="border border-dashed border-border rounded-sm h-full min-h-[200px] flex items-center justify-center">
+            <p className="font-mono text-sm text-muted">
+              next --project<span className="animate-pulse">_</span>
             </p>
-          </motion.div>
+          </div>
         </div>
       </div>
     </main>
