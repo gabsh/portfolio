@@ -8,7 +8,10 @@ const nextConfig: NextConfig = {
     qualities: [30, 60, 75, 100],
   },
   async redirects() {
-    return [{ source: "/", destination: "/portfolio", permanent: false }];
+    return [
+      { source: "/", destination: "/portfolio", permanent: false },
+      { source: "/about", destination: "/portfolio", permanent: false },
+    ];
   },
   async headers() {
     return [
