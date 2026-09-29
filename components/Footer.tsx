@@ -1,57 +1,9 @@
-import { LinkedinIcon, Github } from "lucide-react";
-
-const techs = [
-  { name: "Next.js", href: "https://nextjs.org" },
-  { name: "TypeScript", href: "https://www.typescriptlang.org" },
-  { name: "Tailwind CSS", href: "https://tailwindcss.com" },
-  { name: "Bun", href: "https://bun.sh" },
-  { name: "Three.js", href: "https://threejs.org" },
-];
+import ContactLinks from '@/components/ContactLinks';
 
 export default function Footer() {
   return (
-    <footer className="bg-background border-t border-border mt-5">
-      <div className="max-w-6xl mx-auto px-4 sm:px-6 lg:px-8 py-5">
-        <div className="flex flex-col md:flex-row justify-between items-center gap-4">
-          <div className="flex flex-col items-center md:items-start gap-2 font-mono">
-            <span className="text-xs text-muted">{'/* built with */'}</span>
-            <div className="flex flex-wrap justify-center md:justify-start items-center gap-x-3 gap-y-1">
-              {techs.map(({ name, href }, i) => (
-                <span key={name} className="flex items-center gap-3">
-                  <a
-                    href={href}
-                    target="_blank"
-                    rel="noopener noreferrer"
-                    className="text-xs text-muted hover:text-accent transition-colors"
-                  >
-                    {name}
-                  </a>
-                  {i < techs.length - 1 && <span className="text-border text-xs">·</span>}
-                </span>
-              ))}
-            </div>
-          </div>
-
-          <div className="flex gap-6">
-            <a
-              href="https://linkedin.com/in/gabin-hemmerle"
-              target="_blank"
-              rel="noopener noreferrer"
-              className="text-dim hover:text-foreground transition-colors"
-            >
-              <LinkedinIcon size={26} />
-            </a>
-            <a
-              href="https://github.com/gabsh"
-              target="_blank"
-              rel="noopener noreferrer"
-              className="text-dim hover:text-foreground transition-colors"
-            >
-              <Github size={26} />
-            </a>
-          </div>
-        </div>
-      </div>
+    <footer className="py-10">
+      <ContactLinks />
     </footer>
   );
 }
