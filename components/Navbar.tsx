@@ -10,7 +10,7 @@ export default function Navbar() {
 
   return (
     <header className="pt-8 flex justify-between items-baseline">
-      <Link href="/" className="font-bold">
+      <Link href="/portfolio" className="font-bold">
         Gabin Hemmerle
       </Link>
 
